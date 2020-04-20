@@ -118,6 +118,9 @@
 		<Unit filename="/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/main.cpp">
 			<Option target="qt_project"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/utilitaries.h">
+			<Option target="qt_project"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

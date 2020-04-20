@@ -6,6 +6,6 @@ set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-add_executable(qt_project main.cpp)
+add_executable(qt_project main.cpp utilitaries.h)
 
 target_link_libraries(qt_project Qt5::Widgets)
