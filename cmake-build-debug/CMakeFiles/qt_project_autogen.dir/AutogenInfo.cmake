@@ -11,8 +11,8 @@ set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
 set(AM_BUILD_DIR "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/qt_project_autogen")
 set(AM_INCLUDE_DIR "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/qt_project_autogen/include")
 # Files
-set(AM_SOURCES "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Decor.cpp;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Personnage.cpp;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/main.cpp")
-set(AM_HEADERS "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Decor.h;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Personnage.h;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/utilitaries.h")
+set(AM_SOURCES "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Decor.cpp;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Personnage.cpp;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Window.cpp;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/main.cpp")
+set(AM_HEADERS "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Decor.h;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Personnage.h;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Window.h;/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/utilitaries.h")
 set(AM_SETTINGS_FILE "/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/CMakeFiles/qt_project_autogen.dir/AutogenOldSettings.txt")
 # Qt
 set(AM_QT_VERSION_MAJOR 5)

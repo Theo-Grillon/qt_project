@@ -12,7 +12,7 @@
 
 class Obstacle {
 protected:
-    int posX, posY, dep;
+    double posX, posY, dep;
 public:
     Obstacle();
     virtual void afficheObstacle();
@@ -27,7 +27,7 @@ public:
 
 class Etoile{
 protected:
-    int posX, posY, assombrir;
+    double posX, posY, assombrir;
 public:
     Etoile();
     void afficheEtoile();
@@ -35,7 +35,7 @@ public:
 };
 
 class Nuage : public Obstacle {
-    int assombrir;
+    double assombrir;
 public:
     Nuage();
     virtual void afficheObstacle();
@@ -44,7 +44,7 @@ public:
 
 class Arbre {
 protected:
-    int posX;
+    double posX;
 public:
     Arbre();
     void afficheArbre();

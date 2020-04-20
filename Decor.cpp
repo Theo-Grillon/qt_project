@@ -4,6 +4,7 @@
 
 #include "Decor.h"
 
+using namespace std;
 
 
 Trou::Trou() {
@@ -74,4 +75,19 @@ void Obstacle::depObstacle() {
         dep=-dep;
     }
     posY+=dep;
+}
+
+void Trou::afficheObstacle() {
+    cout<<"Trou"<<endl;
+}
+
+void Nuage::afficheObstacle() {
+    cout<<"Nuage"<<endl;
+}
+
+void Plateforme::afficheObstacle() {
+    cout<<"Plateforme"<<endl;
+}
+void Obstacle::afficheObstacle() {
+    cout<<"Obstacle"<<endl;
 }

@@ -10,8 +10,12 @@
 #include <random>
 #include <ctime>
 #include <cstdlib>
+#include <vector>
+#include <memory>
+#include <QApplication>
+#include <QWidget>
 
-int randomGen(int valFin, double valStart=0){
+int randomGen(int valFin=1, double valStart=0){
     return int(rand() % valFin + valStart);
 }
 

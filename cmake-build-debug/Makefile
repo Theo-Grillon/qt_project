@@ -190,6 +190,33 @@ Personnage.cpp.s:
 	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Personnage.cpp.s
 .PHONY : Personnage.cpp.s
 
+Window.o: Window.cpp.o
+
+.PHONY : Window.o
+
+# target to build an object file
+Window.cpp.o:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Window.cpp.o
+.PHONY : Window.cpp.o
+
+Window.i: Window.cpp.i
+
+.PHONY : Window.i
+
+# target to preprocess a source file
+Window.cpp.i:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Window.cpp.i
+.PHONY : Window.cpp.i
+
+Window.s: Window.cpp.s
+
+.PHONY : Window.s
+
+# target to generate assembly for a file
+Window.cpp.s:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Window.cpp.s
+.PHONY : Window.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -260,6 +287,9 @@ help:
 	@echo "... Personnage.o"
 	@echo "... Personnage.i"
 	@echo "... Personnage.s"
+	@echo "... Window.o"
+	@echo "... Window.i"
+	@echo "... Window.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
