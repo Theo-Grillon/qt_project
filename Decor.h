@@ -8,12 +8,21 @@
 #include "utilitaries.h"
 #define tpsNuit 0
 #define tpsJour 0
-class Trou {
+
+
+class Obstacle {
 protected:
-    int posX, assombrir;
+    int posX, posY, depX;
+public:
+    Obstacle();
+    virtual void afficheObstacle();
+    virtual void depObstacle();
+};
+
+class Trou : public Obstacle {
 public:
     Trou();
-    void AfficheTrou();
+    virtual void afficheObstacle();
 };
 
 class Etoile{
@@ -25,13 +34,12 @@ public:
     void depEtoile();
 };
 
-class Nuage {
-protected:
-    int posX, posY, depX;
+class Nuage : public Obstacle {
+    int assombrir;
 public:
     Nuage();
-    void afficheNuage();
-    void depNuage();
+    virtual void afficheObstacle();
+    virtual void depObstacle();
 };
 
 class Arbre {
@@ -42,22 +50,11 @@ public:
     void afficheArbre();
 };
 
-class Plateforme {
-protected:
-    int posX, posY, depX;
+class Plateforme : public Obstacle {
 public:
     Plateforme();
-    void affichePlateforme();
-    void depPlateforme();
-};
-
-class Obstacle {
-protected:
-    int posX, posY, depY;
-public:
-    Obstacle();
-    void afficheObstacle();
-    void depObstacle();
+    virtual void afficheObstacle();
+    virtual void depObstacle();
 };
 
 #endif //QT_PROJECT_DECOR_H

@@ -9,5 +9,10 @@
 #include <iostream>
 #include <random>
 #include <ctime>
+#include <cstdlib>
+
+int randomGen(int valFin, double valStart=0){
+    return int(rand() % valFin + valStart);
+}
 
 #endif //QT_PROJECT_UTILITARIES_H

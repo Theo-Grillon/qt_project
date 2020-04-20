@@ -163,6 +163,33 @@ Decor.cpp.s:
 	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Decor.cpp.s
 .PHONY : Decor.cpp.s
 
+Personnage.o: Personnage.cpp.o
+
+.PHONY : Personnage.o
+
+# target to build an object file
+Personnage.cpp.o:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Personnage.cpp.o
+.PHONY : Personnage.cpp.o
+
+Personnage.i: Personnage.cpp.i
+
+.PHONY : Personnage.i
+
+# target to preprocess a source file
+Personnage.cpp.i:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Personnage.cpp.i
+.PHONY : Personnage.cpp.i
+
+Personnage.s: Personnage.cpp.s
+
+.PHONY : Personnage.s
+
+# target to generate assembly for a file
+Personnage.cpp.s:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Personnage.cpp.s
+.PHONY : Personnage.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -230,6 +257,9 @@ help:
 	@echo "... Decor.o"
 	@echo "... Decor.i"
 	@echo "... Decor.s"
+	@echo "... Personnage.o"
+	@echo "... Personnage.i"
+	@echo "... Personnage.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
