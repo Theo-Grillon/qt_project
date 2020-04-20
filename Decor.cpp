@@ -24,7 +24,7 @@ Nuage::Nuage() {
     int r3=randomGen(2,0.0000000001);
     posX=10+r1;
     posY=10+r2;
-    depX=-r3;
+    dep=-r3;
 }
 
 Arbre::Arbre() {
@@ -39,8 +39,8 @@ Plateforme::Plateforme() {
     posX=10+r1;
     posY=300+r2;
     do{
-        depX=-5+r3;
-    }while (depX==0);
+        dep= -5 + r3;
+    }while (dep == 0);
 }
 
 Obstacle::Obstacle() {
@@ -50,8 +50,8 @@ Obstacle::Obstacle() {
     posX=250+r1;
     posY=10+r2;
     do{
-        depX=-5+r3;
-    }while (depX==0);
+        dep= -5 + r3;
+    }while (dep == 0);
 }
 
 void Etoile::depEtoile() {
@@ -59,12 +59,19 @@ void Etoile::depEtoile() {
 }
 
 void Nuage::depObstacle() {
-    posX+=depX;
+    posX+=dep;
 }
 
 void Plateforme::depObstacle() {
     if (posX<10 || posY>960){
-        depX=-depX;
+        dep=-dep;
     }
-    posX+=depX;
+    posX+=dep;
+}
+
+void Obstacle::depObstacle() {
+    if (dep < 10 || dep > 500){
+        dep=-dep;
+    }
+    posY+=dep;
 }

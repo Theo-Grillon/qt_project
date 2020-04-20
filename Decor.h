@@ -12,7 +12,7 @@
 
 class Obstacle {
 protected:
-    int posX, posY, depX;
+    int posX, posY, dep;
 public:
     Obstacle();
     virtual void afficheObstacle();
