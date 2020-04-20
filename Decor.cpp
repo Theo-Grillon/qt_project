@@ -2,41 +2,41 @@
 // Created by Théo on 20/04/2020.
 //
 
+#include "utilitaries.h"
 #include "Decor.h"
 
 using namespace std;
 
-
 Trou::Trou() {
-    int r=randomGen(650);
+    int r=int(rand() % 650 );
     posX=100+r;
 }
 
 Etoile::Etoile() {
-    int r1=randomGen(940);
-    int r2=randomGen(150);
+    int r1=int(rand() % 940);
+    int r2=int(rand() % 150);
     posX=10+r1;
     posY=10+r2;
 }
 
 Nuage::Nuage() {
-    int r1=randomGen(980);
-    int r2=randomGen(150);
-    int r3=randomGen(2,0.0000000001);
+    int r1=int(rand() % 980);
+    int r2=int(rand() % 150);
+    int r3=int(rand() % 2 + 0.00000000001);
     posX=10+r1;
     posY=10+r2;
     dep=-r3;
 }
 
 Arbre::Arbre() {
-    int r=randomGen(880);
+    int r=int(rand() % 880);
     posX=60+r;
 }
 
 Plateforme::Plateforme() {
-    int r1=randomGen(960);
-    int r2=randomGen(150);
-    int r3=randomGen(10);
+    int r1=int(rand() % 960);
+    int r2=int(rand() % 150);
+    int r3=int(rand() % 10);
     posX=10+r1;
     posY=300+r2;
     do{
@@ -45,9 +45,9 @@ Plateforme::Plateforme() {
 }
 
 Obstacle::Obstacle() {
-    int r1=randomGen(500);
-    int r2=randomGen(490);
-    int r3=randomGen(10);
+    int r1=int(rand() % 500);
+    int r2=int(rand() % 490);
+    int r3=int(rand() % 10);
     posX=250+r1;
     posY=10+r2;
     do{

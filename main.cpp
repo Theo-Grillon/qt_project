@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Window.h"
 using namespace std;
-#define assombrir randomGen()
-#define enJeu 0
+//#define assombrir rand()
+//#define enJeu 0
 
-int main() {
-    cout << "Hello, World!" << endl;
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
     Window test;
-    return 0;
+    test.show();
+    return app.exec();
 }

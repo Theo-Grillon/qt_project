@@ -6,9 +6,8 @@
 #define QT_PROJECT_DECOR_H
 
 #include "utilitaries.h"
-#define tpsNuit 0
-#define tpsJour 0
-
+//#define tpsNuit 0
+//#define tpsJour 0
 
 class Obstacle {
 protected:

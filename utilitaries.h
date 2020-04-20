@@ -15,8 +15,4 @@
 #include <QApplication>
 #include <QWidget>
 
-int randomGen(int valFin=1, double valStart=0){
-    return int(rand() % valFin + valStart);
-}
-
 #endif //QT_PROJECT_UTILITARIES_H

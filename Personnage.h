@@ -5,8 +5,6 @@
 #ifndef QT_PROJECT_PERSONNAGE_H
 #define QT_PROJECT_PERSONNAGE_H
 
-#include "utilitaries.h"
-
 class Personnage {
 protected:
     int x, y, lx, ly, rx, ry;
