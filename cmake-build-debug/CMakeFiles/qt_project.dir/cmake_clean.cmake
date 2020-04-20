@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "qt_project_autogen"
   "CMakeFiles/qt_project_autogen.dir/AutogenOldSettings.txt"
   "CMakeFiles/qt_project.dir/main.cpp.o"
+  "CMakeFiles/qt_project.dir/Decor.cpp.o"
   "CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o"
   "qt_project.pdb"
   "qt_project"

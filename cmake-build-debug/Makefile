@@ -136,6 +136,33 @@ qt_project_autogen/fast:
 	$(MAKE) -f CMakeFiles/qt_project_autogen.dir/build.make CMakeFiles/qt_project_autogen.dir/build
 .PHONY : qt_project_autogen/fast
 
+Decor.o: Decor.cpp.o
+
+.PHONY : Decor.o
+
+# target to build an object file
+Decor.cpp.o:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Decor.cpp.o
+.PHONY : Decor.cpp.o
+
+Decor.i: Decor.cpp.i
+
+.PHONY : Decor.i
+
+# target to preprocess a source file
+Decor.cpp.i:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Decor.cpp.i
+.PHONY : Decor.cpp.i
+
+Decor.s: Decor.cpp.s
+
+.PHONY : Decor.s
+
+# target to generate assembly for a file
+Decor.cpp.s:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Decor.cpp.s
+.PHONY : Decor.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -200,6 +227,9 @@ help:
 	@echo "... qt_project"
 	@echo "... edit_cache"
 	@echo "... qt_project_autogen"
+	@echo "... Decor.o"
+	@echo "... Decor.i"
+	@echo "... Decor.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

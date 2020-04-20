@@ -112,6 +112,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Decor.cpp">
+			<Option target="qt_project"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/Decor.h">
+			<Option target="qt_project"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/qt_project_autogen/mocs_compilation.cpp">
 			<Option target="qt_project"/>
 		</Unit>
