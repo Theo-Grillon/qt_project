@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/ThÃ©o/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug

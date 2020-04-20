@@ -1,0 +1,4 @@
+/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/CMakeFiles/qt_project.dir
+/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Théo/Documents/cours-isen/QT/projet/qt-project/cmake-build-debug/CMakeFiles/qt_project_autogen.dir
