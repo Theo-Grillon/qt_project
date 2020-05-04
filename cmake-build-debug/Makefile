@@ -136,6 +136,33 @@ qt_project_autogen/fast:
 	$(MAKE) -f CMakeFiles/qt_project_autogen.dir/build.make CMakeFiles/qt_project_autogen.dir/build
 .PHONY : qt_project_autogen/fast
 
+DecElem.o: DecElem.cpp.o
+
+.PHONY : DecElem.o
+
+# target to build an object file
+DecElem.cpp.o:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/DecElem.cpp.o
+.PHONY : DecElem.cpp.o
+
+DecElem.i: DecElem.cpp.i
+
+.PHONY : DecElem.i
+
+# target to preprocess a source file
+DecElem.cpp.i:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/DecElem.cpp.i
+.PHONY : DecElem.cpp.i
+
+DecElem.s: DecElem.cpp.s
+
+.PHONY : DecElem.s
+
+# target to generate assembly for a file
+DecElem.cpp.s:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/DecElem.cpp.s
+.PHONY : DecElem.cpp.s
+
 Decor.o: Decor.cpp.o
 
 .PHONY : Decor.o
@@ -162,6 +189,33 @@ Decor.s: Decor.cpp.s
 Decor.cpp.s:
 	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Decor.cpp.s
 .PHONY : Decor.cpp.s
+
+Menus.o: Menus.cpp.o
+
+.PHONY : Menus.o
+
+# target to build an object file
+Menus.cpp.o:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Menus.cpp.o
+.PHONY : Menus.cpp.o
+
+Menus.i: Menus.cpp.i
+
+.PHONY : Menus.i
+
+# target to preprocess a source file
+Menus.cpp.i:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Menus.cpp.i
+.PHONY : Menus.cpp.i
+
+Menus.s: Menus.cpp.s
+
+.PHONY : Menus.s
+
+# target to generate assembly for a file
+Menus.cpp.s:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Menus.cpp.s
+.PHONY : Menus.cpp.s
 
 Personnage.o: Personnage.cpp.o
 
@@ -281,9 +335,15 @@ help:
 	@echo "... qt_project"
 	@echo "... edit_cache"
 	@echo "... qt_project_autogen"
+	@echo "... DecElem.o"
+	@echo "... DecElem.i"
+	@echo "... DecElem.s"
 	@echo "... Decor.o"
 	@echo "... Decor.i"
 	@echo "... Decor.s"
+	@echo "... Menus.o"
+	@echo "... Menus.i"
+	@echo "... Menus.s"
 	@echo "... Personnage.o"
 	@echo "... Personnage.i"
 	@echo "... Personnage.s"

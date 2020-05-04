@@ -5,12 +5,20 @@
 #include "Window.h"
 using namespace std;
 
-Window::Window() {
-    vector<shared_ptr<Trou>> t[int(rand() % 4)];
-    vector<shared_ptr<Arbre>> a[int(rand() % 3 + 1)];
-    vector<shared_ptr<Etoile>> e[int(rand() % 50 + 1)];
-    vector<shared_ptr<Nuage>> n[int(rand() % 50 + 1)];
-    vector<shared_ptr<Plateforme>> p[int(rand() % 3 + 1)];
-    vector<shared_ptr<Obstacle>> o[int(rand() % 3)];
-    this->setFixedSize(1000,650);
+Window::Window(QWidget* parent) : QMainWindow(parent){
+    this->decor= new Background();
+
+    QGraphicsView* charView= new QGraphicsView();
+    charView->setScene(decor);
+    charView->resize(300,300);
+    charView->setWindowTitle("Patate-boy");
+    charView->show();
+
+    mainView = new QGraphicsView();
+    mainView->setScene(decor);
+    mainView->scale(0.5,0.5);
+
+    this->setCentralWidget(mainView);
+    this->setWindowTitle("Main view");
+    this->resize(501,326);
 }

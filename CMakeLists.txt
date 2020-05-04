@@ -6,6 +6,6 @@ set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-add_executable(qt_project main.cpp utilitaries.h Decor.cpp Decor.h Personnage.cpp Personnage.h Window.cpp Window.h)
+add_executable(qt_project main.cpp utilitaries.h Decor.cpp Decor.h Personnage.cpp Personnage.h Window.cpp Window.h DecElem.cpp DecElem.h Menus.cpp Menus.h)
 
 target_link_libraries(qt_project Qt5::Widgets)

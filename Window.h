@@ -4,13 +4,14 @@
 #ifndef QT_PROJECT_WINDOW_H
 #define QT_PROJECT_WINDOW_H
 #include "Decor.h"
-#include "Personnage.h"
 
-
-class Window : public QWidget {
-    Q_OBJECT;
+class Window : public QMainWindow {
+    Q_OBJECT
+private:
+    Background* decor;
+    QGraphicsView* mainView;
 public:
-    Window();
+    Window(QWidget* parent=nullptr);
 };
 
 

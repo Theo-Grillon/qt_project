@@ -4,90 +4,203 @@
 
 #include "utilitaries.h"
 #include "Decor.h"
+#include "Menus.h"
 
 using namespace std;
 
-Trou::Trou() {
-    int r=int(rand() % 650 );
-    posX=100+r;
-}
+Background::Background() {
+    this->background.load("background.png");
+    this->setSceneRect(0,0,background.width(),background.height());
 
-Etoile::Etoile() {
-    int r1=int(rand() % 940);
-    int r2=int(rand() % 150);
-    posX=10+r1;
-    posY=10+r2;
-}
+    this->timer = new QTimer(this);
+    this->timer->start(30);
+    this->charTime = new QTimer(this);
+    this->charTime->start(500);
 
-Nuage::Nuage() {
-    int r1=int(rand() % 980);
-    int r2=int(rand() % 150);
-    int r3=int(rand() % 2 + 0.00000000001);
-    posX=10+r1;
-    posY=10+r2;
-    dep=-r3;
-}
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 
-Arbre::Arbre() {
-    int r=int(rand() % 880);
-    posX=60+r;
-}
-
-Plateforme::Plateforme() {
-    int r1=int(rand() % 960);
-    int r2=int(rand() % 150);
-    int r3=int(rand() % 10);
-    posX=10+r1;
-    posY=300+r2;
-    do{
-        dep= -5 + r3;
-    }while (dep == 0);
-}
-
-Obstacle::Obstacle() {
-    int r1=int(rand() % 500);
-    int r2=int(rand() % 490);
-    int r3=int(rand() % 10);
-    posX=250+r1;
-    posY=10+r2;
-    do{
-        dep= -5 + r3;
-    }while (dep == 0);
-}
-
-void Etoile::depEtoile() {
-    posX-=0.1;
-}
-
-void Nuage::depObstacle() {
-    posX+=dep;
-}
-
-void Plateforme::depObstacle() {
-    if (posX<10 || posY>960){
-        dep=-dep;
+    int nbHoles= qrand() % 4;
+    for (int h=0; h<nbHoles; h++){
+        this->holes.push_back(new Trou("hole.png"));
     }
-    posX+=dep;
-}
-
-void Obstacle::depObstacle() {
-    if (dep < 10 || dep > 500){
-        dep=-dep;
+    for (int t=0; t<(qrand() % 3 + 1); t++){
+        this->trees.push_back(new Arbre("tree.png"));
     }
-    posY+=dep;
+    for (int p=0; p<nbHoles; p++){
+        this->platforms.push_back(new Plateforme("plateforme.png"));
+    }
+    for (int o=0; o<qrand() % 3; o++){
+        this->obstacles.push_back(new Obstacle("obstacle.png"));
+    }
+
+    for (unsigned int i = 0; i < holes.size(); i++) {
+
+        Trou* hole = this->holes[i];
+
+        this->addItem(hole);
+
+        // all the holes on the right place of the scene
+        hole->setPos(hole->getPosX(), 525);
+    }
+    for (unsigned int i = 0; i < trees.size(); i++) {
+
+        Arbre* tree = this->trees[i];
+        /*for (int j=0; j<holes.size(); j++){
+            while (tree->getPosX()>=holes[i]->getPosX()-133 && tree->getPosX()<=holes[i]->getPosX()+110){
+                tree->setPosX(tree->getPosX()+20);
+            }
+        }*/
+        this->addItem(tree);
+
+        // all the trees on the right place of the scene
+        tree->setPos(tree->getPosX(), 187);
+    }
+    for (unsigned int i = 0; i < platforms.size(); i++) {
+
+        Plateforme* plat = this->platforms[i];
+
+        this->addItem(plat);
+        for (int j=0; j<holes.size(); j++){
+            if (plat->getPosX()!=holes[i]->getPosX()){
+                plat->setPosX(holes[i]->getPosX());
+            }
+        }
+        // all the platforms on the right place of the scene
+        plat->setPos(plat->getPosX(), 450);
+    }
+    for (unsigned int i = 0; i < obstacles.size(); i++) {
+
+        Obstacle* obs = this->obstacles[i];
+
+        this->addItem(obs);
+
+        // all the obstacles on the right place of the scene
+        obs->setPos(obs->getPosX(), 471);
+    }
+    frame=0;
+    arrivee=new Obstacle("arrivee.png");
+    this->addItem(arrivee);
+    arrivee->setPos(951,450);
+    personnage= new Personnage("hero-frame2.png");
+    this->addItem(personnage);
+    personnage->setPos(personnage->getPosX(), personnage->getPosY());
+
 }
 
-void Trou::afficheObstacle() {
-    cout<<"Trou"<<endl;
+void Background::drawBackground(QPainter *painter, const QRectF &rect) {
+    Q_UNUSED(rect);
+    painter->drawPixmap(QRectF(0,0,background.width(), background.height()), background, sceneRect());
 }
 
-void Nuage::afficheObstacle() {
-    cout<<"Nuage"<<endl;
+void Background::update() {
+
+    int nbPlat = platforms.size();
+
+    for (unsigned int i = 0; i < nbPlat; i++) {
+
+        Plateforme* plat = this->platforms[i];
+
+        plat->depObstacle();
+
+        // view update
+        QGraphicsView * view = this->views().at(0);
+        view->centerOn(plat);
+    }
+    for (int i=0; i<platforms.size(); i++){
+            if(this->personnage->pos().y() <= 360 && this->personnage->pos().x() + 34 >= platforms[i]->getPosX() && this->personnage->pos().x()<=platforms[i]->getPosX()+109){
+                    this->personnage->onPlat(true);
+                    this->personnage->setPlatId(i);
+            }
+            else{
+                this->personnage->onPlat(false);
+            }
+    }
+    for (auto & hole : holes){
+        this->personnage->fell(this->personnage->pos().x() + 34 >= hole->getPosX() &&
+                               (!this->personnage->getOnPlat() || !this->personnage->jumper()) && this->personnage->pos().y()>=380 && this->personnage->pos().x()+34<=hole->getPosX()+175);
+    }
+    if (this->personnage->getOnPlat()){
+        this->personnage->deplacement(-platforms[personnage->getPlatid()]->getDep());
+        if (personnage->pos().y()<=350){
+            personnage->fall();
+        }
+        this->personnage->fell(false);
+    }
+    if ((this->personnage->getPosY()<450 && !this->personnage->getOnPlat() && !this->personnage->jumper()) || this->personnage->falling()){
+        this->personnage->fall();
+    }
+    if (this->personnage->getStatus()){
+    }
+    QGraphicsView* view = this->views().at(0);
+    view->centerOn(personnage);
+    if (!gameOver) {
+        personnage->victory();
+        if (personnage->getVic()){
+            gameOver=true;
+        }
+    }
+}
+void Background::charUpdate() {
+    if (frame%4==0){
+        qreal x=personnage->getPosX();
+        qreal y=personnage->getPosY();
+        frame+=1;
+        QPixmap newFrame("hero-frame1.png");
+        personnage->setPixmap(newFrame);
+        QGraphicsView * view = this->views().at(0);
+        view->centerOn(personnage);
+    }
+    else if (frame%2==0){
+        qreal x=personnage->getPosX();
+        qreal y=personnage->getPosY();
+        QPixmap newFrame("hero-frame3.png");
+        personnage->setPixmap(newFrame);
+        frame+=1;
+        QGraphicsView * view = this->views().at(0);
+        view->centerOn(personnage);
+    }
+    else{
+        qreal x=personnage->getPosX();
+        qreal y=personnage->getPosY();
+        QPixmap newFrame("hero-frame2.png");
+        personnage->setPixmap(newFrame);
+        frame+=1;
+        QGraphicsView * view = this->views().at(0);
+        view->centerOn(personnage);
+    }
 }
 
-void Plateforme::afficheObstacle() {
-    cout<<"Plateforme"<<endl;
+void Background::keyPressEvent(QKeyEvent *event) {
+    connect(charTime,SIGNAL(timeout()),this,SLOT(charUpdate()));
+    if (event->key()==Qt::Key_Right){
+        this->personnage->deplacement(5);
+    }
+    if (event->key()==Qt::Key_Left){
+        this->personnage->deplacement(-5);
+    }
+    if (event->key()==Qt::Key_Up){
+        this->personnage->jump();
+        this->personnage->jumping(true);
+    }
 }
-void Obstacle::afficheObstacle() {
-    cout<<"Obstacle"<<endl;
+
+Background::~Background(){
+    for (Arbre* tree : this->trees){
+        delete tree;
+    }
+    for (Trou* hole : this->holes){
+        delete hole;
+    }
+    for (Obstacle* obs : this->obstacles){
+        delete obs;
+    }
+    for (Plateforme* pl : this->platforms){
+        delete pl;
+    }
+}
+
+void Background::keyReleaseEvent(QKeyEvent *event) {
+    QGraphicsScene::keyReleaseEvent(event);
+    this->personnage->jumping(false);
+    disconnect(charTime,SIGNAL(timeout()),this,SLOT(charUpdate()));
 }

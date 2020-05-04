@@ -6,54 +6,37 @@
 #define QT_PROJECT_DECOR_H
 
 #include "utilitaries.h"
-//#define tpsNuit 0
-//#define tpsJour 0
+#include "DecElem.h"
+#include "Personnage.h"
 
-class Obstacle {
+
+
+class Background : public QGraphicsScene {
+    Q_OBJECT;
+private:
+    QPixmap background;
+    QTimer* timer;
+    QTimer* charTime;
+    QVector<Trou*> holes;
+    QVector<Arbre*> trees;
+    QVector<Plateforme*> platforms;
+    QVector<Obstacle*> obstacles;
+    Personnage* personnage;
+    Obstacle* arrivee;
+    int frame;
+    bool gameOver=false;
 protected:
-    double posX, posY, dep;
+    void keyPressEvent(QKeyEvent * event);
+    void keyReleaseEvent(QKeyEvent* event);
 public:
-    Obstacle();
-    virtual void afficheObstacle();
-    virtual void depObstacle();
-};
+    Background();
+    void drawBackground(QPainter *painter, const QRectF &rect);
 
-class Trou : public Obstacle {
-public:
-    Trou();
-    virtual void afficheObstacle();
-};
+    virtual ~Background();
 
-class Etoile{
-protected:
-    double posX, posY, assombrir;
-public:
-    Etoile();
-    void afficheEtoile();
-    void depEtoile();
-};
-
-class Nuage : public Obstacle {
-    double assombrir;
-public:
-    Nuage();
-    virtual void afficheObstacle();
-    virtual void depObstacle();
-};
-
-class Arbre {
-protected:
-    double posX;
-public:
-    Arbre();
-    void afficheArbre();
-};
-
-class Plateforme : public Obstacle {
-public:
-    Plateforme();
-    virtual void afficheObstacle();
-    virtual void depObstacle();
+public slots:
+    void update();
+    void charUpdate();
 };
 
 #endif //QT_PROJECT_DECOR_H
