@@ -358,7 +358,10 @@ CMakeFiles/qt_project.dir/DecElem.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWid
 CMakeFiles/qt_project.dir/Decor.cpp.o: ../DecElem.h
 CMakeFiles/qt_project.dir/Decor.cpp.o: ../Decor.cpp
 CMakeFiles/qt_project.dir/Decor.cpp.o: ../Decor.h
+CMakeFiles/qt_project.dir/Decor.cpp.o: ../Menus.h
 CMakeFiles/qt_project.dir/Decor.cpp.o: ../Personnage.h
+CMakeFiles/qt_project.dir/Decor.cpp.o: ../Timer.h
+CMakeFiles/qt_project.dir/Decor.cpp.o: ../Window.h
 CMakeFiles/qt_project.dir/Decor.cpp.o: ../utilitaries.h
 CMakeFiles/qt_project.dir/Decor.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QElapsedTimer
 CMakeFiles/qt_project.dir/Decor.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent
@@ -716,6 +719,7 @@ CMakeFiles/qt_project.dir/Menus.cpp.o: ../Decor.h
 CMakeFiles/qt_project.dir/Menus.cpp.o: ../Menus.cpp
 CMakeFiles/qt_project.dir/Menus.cpp.o: ../Menus.h
 CMakeFiles/qt_project.dir/Menus.cpp.o: ../Personnage.h
+CMakeFiles/qt_project.dir/Menus.cpp.o: ../Timer.h
 CMakeFiles/qt_project.dir/Menus.cpp.o: ../Window.h
 CMakeFiles/qt_project.dir/Menus.cpp.o: ../utilitaries.h
 CMakeFiles/qt_project.dir/Menus.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QElapsedTimer
@@ -1074,6 +1078,7 @@ CMakeFiles/qt_project.dir/Personnage.cpp.o: ../Decor.h
 CMakeFiles/qt_project.dir/Personnage.cpp.o: ../Menus.h
 CMakeFiles/qt_project.dir/Personnage.cpp.o: ../Personnage.cpp
 CMakeFiles/qt_project.dir/Personnage.cpp.o: ../Personnage.h
+CMakeFiles/qt_project.dir/Personnage.cpp.o: ../Timer.h
 CMakeFiles/qt_project.dir/Personnage.cpp.o: ../Window.h
 CMakeFiles/qt_project.dir/Personnage.cpp.o: ../utilitaries.h
 CMakeFiles/qt_project.dir/Personnage.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QElapsedTimer
@@ -1427,9 +1432,13 @@ CMakeFiles/qt_project.dir/Personnage.cpp.o: /usr/include/x86_64-linux-gnu/qt5/Qt
 CMakeFiles/qt_project.dir/Personnage.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/qt_project.dir/Personnage.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 
+CMakeFiles/qt_project.dir/Timer.cpp.o: ../Timer.cpp
+CMakeFiles/qt_project.dir/Timer.cpp.o: ../Timer.h
+
 CMakeFiles/qt_project.dir/Window.cpp.o: ../DecElem.h
 CMakeFiles/qt_project.dir/Window.cpp.o: ../Decor.h
 CMakeFiles/qt_project.dir/Window.cpp.o: ../Personnage.h
+CMakeFiles/qt_project.dir/Window.cpp.o: ../Timer.h
 CMakeFiles/qt_project.dir/Window.cpp.o: ../Window.cpp
 CMakeFiles/qt_project.dir/Window.cpp.o: ../Window.h
 CMakeFiles/qt_project.dir/Window.cpp.o: ../utilitaries.h
@@ -1788,6 +1797,7 @@ CMakeFiles/qt_project.dir/main.cpp.o: ../DecElem.h
 CMakeFiles/qt_project.dir/main.cpp.o: ../Decor.h
 CMakeFiles/qt_project.dir/main.cpp.o: ../Menus.h
 CMakeFiles/qt_project.dir/main.cpp.o: ../Personnage.h
+CMakeFiles/qt_project.dir/main.cpp.o: ../Timer.h
 CMakeFiles/qt_project.dir/main.cpp.o: ../Window.h
 CMakeFiles/qt_project.dir/main.cpp.o: ../main.cpp
 CMakeFiles/qt_project.dir/main.cpp.o: ../utilitaries.h
@@ -2146,6 +2156,7 @@ CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: ../DecElem.
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: ../Decor.h
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: ../Menus.h
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: ../Personnage.h
+CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: ../Timer.h
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: ../Window.h
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: qt_project_autogen/EWIEGA46WW/moc_Decor.cpp
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.o: qt_project_autogen/EWIEGA46WW/moc_Menus.cpp

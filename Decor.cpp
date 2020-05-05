@@ -4,20 +4,19 @@
 
 #include "utilitaries.h"
 #include "Decor.h"
-
+#include "Menus.h"
 
 using namespace std;
 
 Background::Background() {
     this->background.load("background.png");
     this->setSceneRect(0,0,background.width(),background.height());
-
+    //Background::bestTime=INFINITY;
     this->timer = new QTimer(this);
     this->timer->start(30);
     this->charTime = new QTimer(this);
     this->charTime->start(500);
-    QTime t;
-    this->startTime=t.msecsSinceStartOfDay();
+    t = new Timer();
 
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 
@@ -99,7 +98,7 @@ void Background::drawBackground(QPainter *painter, const QRectF &rect) {
 void Background::update() {
 
     int nbPlat = platforms.size();
-
+    t->increase();
     for (int i = 0; i < nbPlat; i++) {
 
         Plateforme* plat = this->platforms[i];
@@ -124,6 +123,10 @@ void Background::update() {
         this->personnage->fell(this->personnage->pos().x() + 34 >= hole->getPosX() &&
                                (!this->personnage->getOnPlat() || !this->personnage->jumper()) && this->personnage->pos().y()>=380 && this->personnage->pos().x()+34<=hole->getPosX()+175);
     }
+    for (auto & obs : obstacles){
+        this->personnage->died(this->personnage->pos().x() + 34 >= obs->getPosX() &&
+                               !this->personnage->jumper() && this->personnage->pos().x()+34<=obs->getPosX()+17 && personnage->pos().y()>=380);
+    }
     if (this->personnage->getOnPlat()){
         this->personnage->deplacement(-platforms[personnage->getPlatid()]->getDep());
         if (personnage->pos().y()<=350){
@@ -134,24 +137,19 @@ void Background::update() {
     if ((this->personnage->getPosY()<440 && !this->personnage->getOnPlat() && !this->personnage->jumper()) || this->personnage->falling()){
         this->personnage->fall();
     }
-    if (this->personnage->getStatus()){
+    if (this->personnage->getStatus() && !gameOver){
+        gameOver=true;
+        auto death=new DeathScreen;
+        death->show();
     }
     QGraphicsView* view = this->views().at(0);
     view->centerOn(personnage);
     if (!gameOver) {
-        personnage->victory();
         if (personnage->getVic()){
-            cout << startTime;
-            QTime t;
-            this->endTime= t.msecsSinceStartOfDay() - startTime;
-            cout << endTime;
-            //this->endTime/=1000;
-            personnage->setTime(endTime);
-            /*if (this->endTime<=this->bestTime || bestTime==NULL){
-                bestTime=endTime;
-            }*/
             gameOver=true;
         }
+        this->personnage->setTime(t->getTime()/1000);
+        personnage->victory();
     }
 }
 void Background::charUpdate() {

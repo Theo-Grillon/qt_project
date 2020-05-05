@@ -41,6 +41,8 @@ VicScreen::VicScreen(QString time, QWidget * parent) : MainMenu(parent){
     layout()->addWidget(message);
     this->currentTime = new QLabel(time);
     layout()->addWidget(currentTime);
+    this->bestTime= new QLabel("Best Time : 15s");
+    layout()->addWidget(bestTime);
     this->setLayout(layout());
     disconnect(this->leaderboard, SIGNAL(clicked()), this, SLOT(printLeaderboard()));
 }

@@ -244,6 +244,33 @@ Personnage.cpp.s:
 	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Personnage.cpp.s
 .PHONY : Personnage.cpp.s
 
+Timer.o: Timer.cpp.o
+
+.PHONY : Timer.o
+
+# target to build an object file
+Timer.cpp.o:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Timer.cpp.o
+.PHONY : Timer.cpp.o
+
+Timer.i: Timer.cpp.i
+
+.PHONY : Timer.i
+
+# target to preprocess a source file
+Timer.cpp.i:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Timer.cpp.i
+.PHONY : Timer.cpp.i
+
+Timer.s: Timer.cpp.s
+
+.PHONY : Timer.s
+
+# target to generate assembly for a file
+Timer.cpp.s:
+	$(MAKE) -f CMakeFiles/qt_project.dir/build.make CMakeFiles/qt_project.dir/Timer.cpp.s
+.PHONY : Timer.cpp.s
+
 Window.o: Window.cpp.o
 
 .PHONY : Window.o
@@ -347,6 +374,9 @@ help:
 	@echo "... Personnage.o"
 	@echo "... Personnage.i"
 	@echo "... Personnage.s"
+	@echo "... Timer.o"
+	@echo "... Timer.i"
+	@echo "... Timer.s"
 	@echo "... Window.o"
 	@echo "... Window.i"
 	@echo "... Window.s"

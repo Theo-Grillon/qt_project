@@ -8,6 +8,7 @@
 #include "utilitaries.h"
 #include "DecElem.h"
 #include "Personnage.h"
+#include "Timer.h"
 
 
 
@@ -15,12 +16,10 @@ class Background : public QGraphicsScene {
     Q_OBJECT;
 
 private:
-    static double bestTime;
     QPixmap background;
     QTimer* timer;
     QTimer* charTime;
-    int startTime;
-    double endTime;
+    Timer* t;
     QVector<Trou*> holes;
     QVector<Arbre*> trees;
     QVector<Plateforme*> platforms;
@@ -33,6 +32,7 @@ protected:
     void keyPressEvent(QKeyEvent * event);
     void keyReleaseEvent(QKeyEvent* event);
 public:
+    //static double bestTime;
     Background();
     void drawBackground(QPainter *painter, const QRectF &rect);
 

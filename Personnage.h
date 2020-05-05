@@ -31,6 +31,7 @@ public:
     void jumping(bool b){isJumping=b;}
     void onPlat(bool b){isOnPlat=b;}
     void fell(bool b){canFall=b;}
+    void died(bool b){dead=b;}
     void victory();
     bool getVic(){return victorious;}
 };
