@@ -26,8 +26,10 @@ class VicScreen : public MainMenu {
     Q_OBJECT;
 private:
     QLabel* message;
+    QLabel* bestTime;
+    QLabel* currentTime;
 public:
-    VicScreen(QWidget* = nullptr);
+    VicScreen(QString time, QWidget* = nullptr);
 };
 class DeathScreen : public QWidget{
     Q_OBJECT;

@@ -26,6 +26,8 @@
 #include <QtGui>
 #include <QPushButton>
 #include <QLabel>
+#include <QTime>
+#include <QElapsedTimer>
 #include "qglobal.h"
 
 #endif //QT_PROJECT_UTILITARIES_H

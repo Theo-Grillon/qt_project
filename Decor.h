@@ -13,10 +13,14 @@
 
 class Background : public QGraphicsScene {
     Q_OBJECT;
+
 private:
+    static double bestTime;
     QPixmap background;
     QTimer* timer;
     QTimer* charTime;
+    int startTime;
+    double endTime;
     QVector<Trou*> holes;
     QVector<Arbre*> trees;
     QVector<Plateforme*> platforms;

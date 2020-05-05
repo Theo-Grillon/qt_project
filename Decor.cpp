@@ -4,7 +4,7 @@
 
 #include "utilitaries.h"
 #include "Decor.h"
-#include "Menus.h"
+
 
 using namespace std;
 
@@ -16,6 +16,8 @@ Background::Background() {
     this->timer->start(30);
     this->charTime = new QTimer(this);
     this->charTime->start(500);
+    QTime t;
+    this->startTime=t.msecsSinceStartOfDay();
 
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 
@@ -33,7 +35,7 @@ Background::Background() {
         this->obstacles.push_back(new Obstacle("obstacle.png"));
     }
 
-    for (unsigned int i = 0; i < holes.size(); i++) {
+    for (int i = 0; i < holes.size(); i++) {
 
         Trou* hole = this->holes[i];
 
@@ -42,20 +44,22 @@ Background::Background() {
         // all the holes on the right place of the scene
         hole->setPos(hole->getPosX(), 525);
     }
-    for (unsigned int i = 0; i < trees.size(); i++) {
+    for (int i = 0; i < trees.size(); i++) {
 
         Arbre* tree = this->trees[i];
-        /*for (int j=0; j<holes.size(); j++){
-            while (tree->getPosX()>=holes[i]->getPosX()-133 && tree->getPosX()<=holes[i]->getPosX()+110){
-                tree->setPosX(tree->getPosX()+20);
+        if (!holes.empty()){
+            for (int j = 0; j < holes.size(); j++) {
+                while (tree->getPosX() >= holes[i]->getPosX() - 133 && tree->getPosX() <= holes[i]->getPosX() + 110) {
+                    tree->setPosX(tree->getPosX() + 20);
+                }
             }
-        }*/
+        }
         this->addItem(tree);
 
         // all the trees on the right place of the scene
         tree->setPos(tree->getPosX(), 187);
     }
-    for (unsigned int i = 0; i < platforms.size(); i++) {
+    for (int i = 0; i < platforms.size(); i++) {
 
         Plateforme* plat = this->platforms[i];
 
@@ -68,7 +72,7 @@ Background::Background() {
         // all the platforms on the right place of the scene
         plat->setPos(plat->getPosX(), 450);
     }
-    for (unsigned int i = 0; i < obstacles.size(); i++) {
+    for (int i = 0; i < obstacles.size(); i++) {
 
         Obstacle* obs = this->obstacles[i];
 
@@ -96,7 +100,7 @@ void Background::update() {
 
     int nbPlat = platforms.size();
 
-    for (unsigned int i = 0; i < nbPlat; i++) {
+    for (int i = 0; i < nbPlat; i++) {
 
         Plateforme* plat = this->platforms[i];
 
@@ -110,6 +114,7 @@ void Background::update() {
             if(this->personnage->pos().y() <= 360 && this->personnage->pos().x() + 34 >= platforms[i]->getPosX() && this->personnage->pos().x()<=platforms[i]->getPosX()+109){
                     this->personnage->onPlat(true);
                     this->personnage->setPlatId(i);
+                    break;
             }
             else{
                 this->personnage->onPlat(false);
@@ -126,7 +131,7 @@ void Background::update() {
         }
         this->personnage->fell(false);
     }
-    if ((this->personnage->getPosY()<450 && !this->personnage->getOnPlat() && !this->personnage->jumper()) || this->personnage->falling()){
+    if ((this->personnage->getPosY()<440 && !this->personnage->getOnPlat() && !this->personnage->jumper()) || this->personnage->falling()){
         this->personnage->fall();
     }
     if (this->personnage->getStatus()){
@@ -136,14 +141,21 @@ void Background::update() {
     if (!gameOver) {
         personnage->victory();
         if (personnage->getVic()){
+            cout << startTime;
+            QTime t;
+            this->endTime= t.msecsSinceStartOfDay() - startTime;
+            cout << endTime;
+            //this->endTime/=1000;
+            personnage->setTime(endTime);
+            /*if (this->endTime<=this->bestTime || bestTime==NULL){
+                bestTime=endTime;
+            }*/
             gameOver=true;
         }
     }
 }
 void Background::charUpdate() {
     if (frame%4==0){
-        qreal x=personnage->getPosX();
-        qreal y=personnage->getPosY();
         frame+=1;
         QPixmap newFrame("hero-frame1.png");
         personnage->setPixmap(newFrame);
@@ -151,8 +163,6 @@ void Background::charUpdate() {
         view->centerOn(personnage);
     }
     else if (frame%2==0){
-        qreal x=personnage->getPosX();
-        qreal y=personnage->getPosY();
         QPixmap newFrame("hero-frame3.png");
         personnage->setPixmap(newFrame);
         frame+=1;
@@ -160,8 +170,6 @@ void Background::charUpdate() {
         view->centerOn(personnage);
     }
     else{
-        qreal x=personnage->getPosX();
-        qreal y=personnage->getPosY();
         QPixmap newFrame("hero-frame2.png");
         personnage->setPixmap(newFrame);
         frame+=1;
@@ -178,7 +186,7 @@ void Background::keyPressEvent(QKeyEvent *event) {
     if (event->key()==Qt::Key_Left){
         this->personnage->deplacement(-5);
     }
-    if (event->key()==Qt::Key_Up){
+    if (event->key()==Qt::Key_Up && !personnage->falling()){
         this->personnage->jump();
         this->personnage->jumping(true);
     }

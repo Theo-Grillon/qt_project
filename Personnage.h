@@ -6,17 +6,20 @@
 #define QT_PROJECT_PERSONNAGE_H
 
 #include "utilitaries.h"
-
+using namespace std;
 class Personnage : public QGraphicsPixmapItem{
 protected:
     qreal x, y;
     int dep, fallSpeed, platId;
     bool isOnPlat, isJumping, canFall, dead, victorious;
+    double time;
 public:
     Personnage(QString frameName, int x=20, int y=431);
     void deplacement(int d);
     void jump();
     void fall();
+    QString getTime(){return QString::number(time);}
+    void setTime(double t){time=t;}
     bool getStatus(){return dead;}
     void setPlatId(int i){platId=i;}
     int getPlatid(){return platId;}

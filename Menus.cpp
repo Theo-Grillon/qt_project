@@ -34,11 +34,13 @@ void MainMenu::printLeaderboard() {
 
 }
 
-VicScreen::VicScreen(QWidget * parent) : MainMenu(parent){
+VicScreen::VicScreen(QString time, QWidget * parent) : MainMenu(parent){
     this->setWindowTitle("Victory");
     layout()->removeWidget(leaderboard);
     this->message= new QLabel("You have won !");
     layout()->addWidget(message);
+    this->currentTime = new QLabel(time);
+    layout()->addWidget(currentTime);
     this->setLayout(layout());
     disconnect(this->leaderboard, SIGNAL(clicked()), this, SLOT(printLeaderboard()));
 }

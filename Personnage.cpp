@@ -64,7 +64,7 @@ void Personnage::fall() {
 void Personnage::victory(){
     if (this->pos().x()+34>=951 && !dead){
         victorious=true;
-        auto vic= new VicScreen;
+        auto vic= new VicScreen(this->getTime());
         vic->show();
     }
 }
